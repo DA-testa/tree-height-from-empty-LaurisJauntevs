@@ -2,8 +2,10 @@
 
 import sys
 import threading
-import numpy
+import numpy as np
 def compute_height(n, parents):
+    depth_arr = np.zeros(n)
+    check_arr = np.zeros(n)
     max_height = 0
     for i in range(n):
        height = 1
@@ -18,11 +20,26 @@ def compute_height(n, parents):
     return max_height
 
 def main():
-    n = int(input("input number of nodes: "))
-    values = input("input parents of nodes: ")
-    stringlist = values.split()
-    parents = [int(x) for x in stringlist]
-    print(compute_height(n, parents))
+    text = input()
+    if "I" in text:
+       n = int(input("input number of nodes: "))
+       values = input("input parents of nodes: ")
+       stringlist = values.split()
+       parents = [int(x) for x in stringlist]
+       print(compute_height(n, parents))
+    elif "F" in text:
+       nosaukums = input()
+       if "a" in nosaukums:
+        print("faila nosaukums nedrīkst saturēt a burtu")
+       else:
+           fails = open("./test/"+nosaukums)
+           n = fails.readline()
+           n = int(n)
+           values = fails.readline()
+           stringlist = values.split()
+           parents = [int(x) for x in stringlist]
+           print(compute_height(n, parents))
+           fails.close
     # implement input form keyboard and from files
     
     # let user input file name to use, don't allow file names with letter a
