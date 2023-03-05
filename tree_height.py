@@ -4,8 +4,10 @@ import sys
 import threading
 import numpy
 
-
+i = 0
 def compute_height(n, parents):
+    sortedparents = parents.sort()
+    
     # Write this function
     max_height = 0
     # Your code here
@@ -13,6 +15,10 @@ def compute_height(n, parents):
 
 
 def main():
+    n = input("input number of nodes: ")
+    values = input("input parents of nodes: ")
+    parents = values.split()
+    
     # implement input form keyboard and from files
     
     # let user input file name to use, don't allow file names with letter a
